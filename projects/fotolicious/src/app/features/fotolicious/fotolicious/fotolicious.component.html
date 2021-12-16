@@ -1,0 +1,29 @@
+    <!-- <img src="{{ fotoURL$ | async }}" height="700px" class="img-fluid" alt="..." /> -->
+    <!-- <img src="https://ato-transfer.s3.ap-southeast-2.amazonaws.com/DSCN0794.JPG" class="img-fluid" alt="..." /> -->
+
+        <!-- <img src="https://ato-transfer.s3.ap-southeast-2.amazonaws.com/DSCN0794.JPG" height="700px" class="img-fluid" alt="..." /> -->
+      <!-- src="https://mdbcdn.b-cdn.net/img/new/slides/041.jpg" -->
+      <!-- src="https://mdbcdn.b-cdn.net/img/new/slides/043.jpg" -->
+<mdb-carousel 
+    [controls]="false" 
+    [indicators]="false" 
+    [interval]="2000" 
+    [animation]="'fade'"
+    (slideChange)="onSlideChange()"
+    >
+  <mdb-carousel-item>
+    <img
+      src="{{ fotoURL1$ | async }}"
+      class="d-block w-100"
+      alt="foto1"
+    />
+  </mdb-carousel-item>
+
+  <mdb-carousel-item>
+    <img
+      src="{{ fotoURL2$ | async }}"
+      class="d-block w-100"
+      alt="foto2"
+    />
+  </mdb-carousel-item>
+</mdb-carousel>

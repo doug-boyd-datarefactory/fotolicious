@@ -1,0 +1,163 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "fotolicious": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "changeDetection": "OnPush",
+          "style": "scss"
+        }
+      },
+      "root": "projects/fotolicious",
+      "sourceRoot": "projects/fotolicious/src",
+      "prefix": "anms",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/fotolicious",
+            "index": "projects/fotolicious/src/index.html",
+            "main": "projects/fotolicious/src/main.ts",
+            "polyfills": "projects/fotolicious/src/polyfills.ts",
+            "tsConfig": "projects/fotolicious/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/fotolicious/src/favicon.ico",
+              "projects/fotolicious/src/assets"
+            ],
+            "styles": [
+              "projects/fotolicious/src/styles-app-loading.scss",
+              "projects/fotolicious/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/fotolicious/src/environments/environment.ts",
+                  "with": "projects/fotolicious/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1536kb"
+                },
+                {
+                  "type": "bundle",
+                  "name": "polyfills",
+                  "baseline": "150kb",
+                  "maximumWarning": "50kb",
+                  "maximumError": "100kb"
+                },
+                {
+                  "type": "bundle",
+                  "name": "styles",
+                  "baseline": "280kb",
+                  "maximumWarning": "50kb",
+                  "maximumError": "100kb"
+                },
+                {
+                  "type": "bundle",
+                  "name": "main",
+                  "baseline": "1024kb",
+                  "maximumWarning": "100kb",
+                  "maximumError": "200kb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "fotolicious:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "fotolicious:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "fotolicious:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/fotolicious/src/test.ts",
+            "polyfills": "projects/fotolicious/src/polyfills.ts",
+            "tsConfig": "projects/fotolicious/tsconfig.spec.json",
+            "karmaConfig": "projects/fotolicious/karma.conf.js",
+            "assets": [
+              "projects/fotolicious/src/favicon.ico",
+              "projects/fotolicious/src/assets"
+            ],
+            "styles": [
+              "projects/fotolicious/src/styles-app-loading.scss",
+              "projects/fotolicious/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "test": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/fotolicious/src/environments/environment.ts",
+                  "with": "projects/fotolicious/src/environments/environment.test.ts"
+                }
+              ]
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/fotolicious/tsconfig.app.json",
+              "projects/fotolicious/tsconfig.spec.json",
+              "projects/fotolicious/e2e/tsconfig.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/fotolicious/e2e/protractor.conf.js",
+            "devServerTarget": "fotolicious:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "fotolicious:serve:production"
+            }
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "fotolicious",
+  "cli": {
+    "analytics": false
+  }
+}
