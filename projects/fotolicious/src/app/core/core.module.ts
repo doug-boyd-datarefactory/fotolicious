@@ -49,7 +49,6 @@ import { AppErrorHandler } from './error-handler/app-error-handler.service';
 import { CustomSerializer } from './router/custom-serializer';
 import { LocalStorageService } from './local-storage/local-storage.service';
 import { HttpErrorInterceptor } from './http-interceptors/http-error.interceptor';
-import { GoogleAnalyticsEffects } from './google-analytics/google-analytics.effects';
 import { MatButtonModule } from '@angular/material/button';
 import {
   faCog,
@@ -111,7 +110,7 @@ export function httpLoaderFactory(http: HttpClient) {
     // ngrx
     StoreModule.forRoot(reducers, { metaReducers }),
     StoreRouterConnectingModule.forRoot(),
-    EffectsModule.forRoot([AuthEffects, FotoEffects, GoogleAnalyticsEffects]),
+    EffectsModule.forRoot([AuthEffects, FotoEffects]),
     environment.production
       ? []
       : StoreDevtoolsModule.instrument({
