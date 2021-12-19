@@ -9,9 +9,9 @@ import { createReducer, on, Action } from '@ngrx/store';
 
 export const initialState: FotoState = {
   fotoURL1:
-    'https://ato-transfer.s3.ap-southeast-2.amazonaws.com/no-image-available.jpg',
+    'https://ato-transfer.s3.ap-southeast-2.amazonaws.com/fotolicious-logo.png',
   fotoURL2:
-    'https://ato-transfer.s3.ap-southeast-2.amazonaws.com/no-image-available.jpg',
+    'https://ato-transfer.s3.ap-southeast-2.amazonaws.com/fotolicious-logo.png',
   fotoPlaceHolder: 'foto1'
 };
 

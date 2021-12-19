@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Subject, Observable, of } from 'rxjs';
+import * as AWS from 'aws-sdk/global';
+import * as S3 from 'aws-sdk/clients/s3';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map, catchError } from 'rxjs/operators';
 
@@ -9,13 +11,27 @@ import { map, catchError } from 'rxjs/operators';
 export class FotoService {
   private fotoURL = new Subject<string>();
   // fotoServiceEndpoint = '/api/getPic';
-  fotoServiceEndpoint = 'http://localhost:3080/api/getPic';
+  // fotoServiceEndpoint = 'http://localhost:3080/api/getPic';
+  fotoServiceEndpoint = 'http://localhost:8080/api/getFoto';
   // fotoServiceEndpoint = 'api/getPic';
 
   constructor(private http: HttpClient) {
     console.log('in the construcyor');
     this.fotoURL.next('');
   }
+
+  /*
+  // create the bucket, with the appropriate access keys
+  private getS3Bucket(): any {
+    const bucket = new S3({
+      accessKeyId: 'AKIAXVAJGDD6R7XV2M5U',
+      secretAccessKey: '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',
+      region: 'ap-southeast-2'
+    });
+
+    return bucket;
+  }
+   */
 
   setFotoURL(fotoURL: string) {
     this.fotoURL.next(fotoURL);
