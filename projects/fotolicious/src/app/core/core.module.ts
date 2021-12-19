@@ -50,7 +50,6 @@ import { CustomSerializer } from './router/custom-serializer';
 import { LocalStorageService } from './local-storage/local-storage.service';
 import { HttpErrorInterceptor } from './http-interceptors/http-error.interceptor';
 import { GoogleAnalyticsEffects } from './google-analytics/google-analytics.effects';
-import { NotificationService } from './notifications/notification.service';
 import { MatButtonModule } from '@angular/material/button';
 import {
   faCog,
@@ -80,8 +79,7 @@ export {
   ROUTE_ANIMATIONS_ELEMENTS,
   AnimationsService,
   AuthGuardService,
-  selectRouterState,
-  NotificationService
+  selectRouterState
 };
 
 export function httpLoaderFactory(http: HttpClient) {
