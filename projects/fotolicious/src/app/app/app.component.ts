@@ -12,15 +12,8 @@ import {
   routeAnimations,
   LocalStorageService,
   selectIsAuthenticated,
-  selectSettingsStickyHeader,
-  selectSettingsLanguage,
-  selectEffectiveTheme,
   AppState
 } from '../core/core.module';
-import {
-  actionSettingsChangeAnimationsPageDisabled,
-  actionSettingsChangeLanguage
-} from '../core/settings/settings.actions';
 // import { selectFotoState } from '../core/core.state';
 import { selectFotoURL1, selectFotoURL2 } from '../core/foto/foto.selectors';
 
@@ -66,20 +59,10 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.storageService.testLocalStorage();
-    if (AppComponent.isIEorEdgeOrSafari()) {
-      this.store.dispatch(
-        actionSettingsChangeAnimationsPageDisabled({
-          pageAnimationsDisabled: true
-        })
-      );
-    }
 
     this.fotoURL1$ = this.store.pipe(select(selectFotoURL1));
     this.fotoURL2$ = this.store.pipe(select(selectFotoURL2));
     this.isAuthenticated$ = this.store.pipe(select(selectIsAuthenticated));
-    this.stickyHeader$ = this.store.pipe(select(selectSettingsStickyHeader));
-    this.language$ = this.store.pipe(select(selectSettingsLanguage));
-    this.theme$ = this.store.pipe(select(selectEffectiveTheme));
   }
 
   onLoginClick() {
@@ -88,11 +71,5 @@ export class AppComponent implements OnInit {
 
   onLogoutClick() {
     this.store.dispatch(authLogout());
-  }
-
-  onLanguageSelect(event: MatSelectChange) {
-    this.store.dispatch(
-      actionSettingsChangeLanguage({ language: event.value })
-    );
   }
 }

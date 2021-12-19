@@ -14,13 +14,10 @@ import { FotoState } from './foto/foto.models';
 import { authReducer } from './auth/auth.reducer';
 import { fotoReducer } from './foto/foto.reducer';
 import { RouterStateUrl } from './router/router.state';
-import { settingsReducer } from './settings/settings.reducer';
-import { SettingsState } from './settings/settings.model';
 
 export const reducers: ActionReducerMap<AppState> = {
   foto: fotoReducer,
   auth: authReducer,
-  settings: settingsReducer,
   router: routerReducer
 };
 
@@ -42,10 +39,7 @@ export const selectAuthState = createFeatureSelector<AppState, AuthState>(
   'auth'
 );
 
-export const selectSettingsState = createFeatureSelector<
-  AppState,
-  SettingsState
->('settings');
+export const selectSettingsState = createFeatureSelector<AppState>('settings');
 
 export const selectRouterState = createFeatureSelector<
   AppState,
@@ -55,6 +49,5 @@ export const selectRouterState = createFeatureSelector<
 export interface AppState {
   foto: FotoState;
   auth: AuthState;
-  settings: SettingsState;
   router: RouterReducerState<RouterStateUrl>;
 }

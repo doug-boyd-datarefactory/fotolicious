@@ -40,7 +40,6 @@ import { AuthEffects } from './auth/auth.effects';
 import { selectIsAuthenticated, selectAuth } from './auth/auth.selectors';
 import { authLogin, authLogout } from './auth/auth.actions';
 import { AuthGuardService } from './auth/auth-guard.service';
-import { TitleService } from './title/title.service';
 import {
   ROUTE_ANIMATIONS_ELEMENTS,
   routeAnimations
@@ -52,12 +51,6 @@ import { LocalStorageService } from './local-storage/local-storage.service';
 import { HttpErrorInterceptor } from './http-interceptors/http-error.interceptor';
 import { GoogleAnalyticsEffects } from './google-analytics/google-analytics.effects';
 import { NotificationService } from './notifications/notification.service';
-import { SettingsEffects } from './settings/settings.effects';
-import {
-  selectSettingsLanguage,
-  selectEffectiveTheme,
-  selectSettingsStickyHeader
-} from './settings/settings.selectors';
 import { MatButtonModule } from '@angular/material/button';
 import {
   faCog,
@@ -77,7 +70,6 @@ import {
 import { FotoEffects } from './foto/foto.effects';
 
 export {
-  TitleService,
   selectAuth,
   authLogin,
   authLogout,
@@ -89,10 +81,7 @@ export {
   AnimationsService,
   AuthGuardService,
   selectRouterState,
-  NotificationService,
-  selectEffectiveTheme,
-  selectSettingsLanguage,
-  selectSettingsStickyHeader
+  NotificationService
 };
 
 export function httpLoaderFactory(http: HttpClient) {
@@ -124,12 +113,7 @@ export function httpLoaderFactory(http: HttpClient) {
     // ngrx
     StoreModule.forRoot(reducers, { metaReducers }),
     StoreRouterConnectingModule.forRoot(),
-    EffectsModule.forRoot([
-      AuthEffects,
-      FotoEffects,
-      SettingsEffects,
-      GoogleAnalyticsEffects
-    ]),
+    EffectsModule.forRoot([AuthEffects, FotoEffects, GoogleAnalyticsEffects]),
     environment.production
       ? []
       : StoreDevtoolsModule.instrument({
