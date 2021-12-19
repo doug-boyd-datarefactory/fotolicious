@@ -20,19 +20,6 @@ export class FotoService {
     this.fotoURL.next('');
   }
 
-  /*
-  // create the bucket, with the appropriate access keys
-  private getS3Bucket(): any {
-    const bucket = new S3({
-      accessKeyId: 'AKIAXVAJGDD6R7XV2M5U',
-      secretAccessKey: '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',
-      region: 'ap-southeast-2'
-    });
-
-    return bucket;
-  }
-   */
-
   setFotoURL(fotoURL: string) {
     this.fotoURL.next(fotoURL);
   }
