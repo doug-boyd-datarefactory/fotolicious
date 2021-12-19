@@ -18,7 +18,7 @@ export const initialState: FotoState = {
 const reducer = createReducer(
   initialState,
   //
-  on(fotoGetURL1, (state) => ({ ...state, fotoURL: '' })),
+  // on(fotoGetURL1, (state) => ({ ...state, fotoURL1: '' })),
   //
   on(fotoGetURL1Success, (state, result) => ({
     ...state,
@@ -26,7 +26,7 @@ const reducer = createReducer(
     fotoPlaceHolder: switchFotoState(state.fotoPlaceHolder)
   })),
   //
-  on(fotoGetURL2, (state) => ({ ...state, fotoURL: '' })),
+  // on(fotoGetURL2, (state) => ({ ...state, fotoURL2: '' })),
   on(fotoGetURL2Success, (state, result) => ({
     ...state,
     fotoURL2: result.fotoURL,
