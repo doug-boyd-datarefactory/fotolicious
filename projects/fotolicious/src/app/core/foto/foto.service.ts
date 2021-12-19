@@ -13,6 +13,8 @@ export class FotoService {
   // fotoServiceEndpoint = '/api/getPic';
   // fotoServiceEndpoint = 'http://localhost:3080/api/getPic';
   fotoServiceEndpoint = 'http://localhost:8080/api/getFoto';
+  // fotoServiceEndpoint =
+  // 'http://ec2-3-25-2-216.ap-southeast-2.compute.amazonaws.com:8080/api/getFoto';
   // fotoServiceEndpoint = 'api/getPic';
 
   constructor(private http: HttpClient) {
