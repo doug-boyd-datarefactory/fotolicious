@@ -36,10 +36,6 @@ import {
   metaReducers,
   selectRouterState
 } from './core.state';
-import { AuthEffects } from './auth/auth.effects';
-import { selectIsAuthenticated, selectAuth } from './auth/auth.selectors';
-import { authLogin, authLogout } from './auth/auth.actions';
-import { AuthGuardService } from './auth/auth-guard.service';
 import {
   ROUTE_ANIMATIONS_ELEMENTS,
   routeAnimations
@@ -68,16 +64,11 @@ import {
 import { FotoEffects } from './foto/foto.effects';
 
 export {
-  selectAuth,
-  authLogin,
-  authLogout,
   routeAnimations,
   AppState,
   LocalStorageService,
-  selectIsAuthenticated,
   ROUTE_ANIMATIONS_ELEMENTS,
   AnimationsService,
-  AuthGuardService,
   selectRouterState
 };
 
@@ -110,7 +101,7 @@ export function httpLoaderFactory(http: HttpClient) {
     // ngrx
     StoreModule.forRoot(reducers, { metaReducers }),
     StoreRouterConnectingModule.forRoot(),
-    EffectsModule.forRoot([AuthEffects, FotoEffects]),
+    EffectsModule.forRoot([FotoEffects]),
     environment.production
       ? []
       : StoreDevtoolsModule.instrument({

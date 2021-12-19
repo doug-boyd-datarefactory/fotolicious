@@ -9,15 +9,12 @@ import { environment } from '../../environments/environment';
 
 import { initStateFromLocalStorage } from './meta-reducers/init-state-from-local-storage.reducer';
 import { debug } from './meta-reducers/debug.reducer';
-import { AuthState } from './auth/auth.models';
 import { FotoState } from './foto/foto.models';
-import { authReducer } from './auth/auth.reducer';
 import { fotoReducer } from './foto/foto.reducer';
 import { RouterStateUrl } from './router/router.state';
 
 export const reducers: ActionReducerMap<AppState> = {
   foto: fotoReducer,
-  auth: authReducer,
   router: routerReducer
 };
 
@@ -35,10 +32,6 @@ export const selectFotoState = createFeatureSelector<AppState, FotoState>(
   'foto'
 );
 
-export const selectAuthState = createFeatureSelector<AppState, AuthState>(
-  'auth'
-);
-
 export const selectSettingsState = createFeatureSelector<AppState>('settings');
 
 export const selectRouterState = createFeatureSelector<
@@ -48,6 +41,5 @@ export const selectRouterState = createFeatureSelector<
 
 export interface AppState {
   foto: FotoState;
-  auth: AuthState;
   router: RouterReducerState<RouterStateUrl>;
 }

@@ -7,11 +7,8 @@ import { Observable } from 'rxjs';
 import { environment as env } from '../../environments/environment';
 
 import {
-  authLogin,
-  authLogout,
   routeAnimations,
   LocalStorageService,
-  selectIsAuthenticated,
   AppState
 } from '../core/core.module';
 // import { selectFotoState } from '../core/core.state';
@@ -62,14 +59,5 @@ export class AppComponent implements OnInit {
 
     this.fotoURL1$ = this.store.pipe(select(selectFotoURL1));
     this.fotoURL2$ = this.store.pipe(select(selectFotoURL2));
-    this.isAuthenticated$ = this.store.pipe(select(selectIsAuthenticated));
-  }
-
-  onLoginClick() {
-    this.store.dispatch(authLogin());
-  }
-
-  onLogoutClick() {
-    this.store.dispatch(authLogout());
   }
 }
