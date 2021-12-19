@@ -30,15 +30,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { environment } from '../../environments/environment';
 
-import {
-  AppState,
-  reducers,
-  metaReducers,
-  selectRouterState
-} from './core.state';
-import { AppErrorHandler } from './error-handler/app-error-handler.service';
-import { CustomSerializer } from './router/custom-serializer';
-import { LocalStorageService } from './local-storage/local-storage.service';
+import { AppState, reducers } from './core.state';
 import { MatButtonModule } from '@angular/material/button';
 import {
   faCog,
@@ -57,7 +49,7 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 import { FotoEffects } from './foto/foto.effects';
 
-export { AppState, LocalStorageService, selectRouterState };
+export { AppState };
 
 export function httpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(
@@ -86,7 +78,7 @@ export function httpLoaderFactory(http: HttpClient) {
     MatButtonModule,
 
     // ngrx
-    StoreModule.forRoot(reducers, { metaReducers }),
+    StoreModule.forRoot(reducers, {}),
     StoreRouterConnectingModule.forRoot(),
     EffectsModule.forRoot([FotoEffects]),
     environment.production
@@ -106,10 +98,6 @@ export function httpLoaderFactory(http: HttpClient) {
     })
   ],
   declarations: [],
-  providers: [
-    { provide: ErrorHandler, useClass: AppErrorHandler },
-    { provide: RouterStateSerializer, useClass: CustomSerializer }
-  ],
   exports: [
     // angular
     FormsModule,

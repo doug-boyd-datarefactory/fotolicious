@@ -6,8 +6,7 @@ import { Observable } from 'rxjs';
 
 import { environment as env } from '../../environments/environment';
 
-import { LocalStorageService, AppState } from '../core/core.module';
-// import { selectFotoState } from '../core/core.state';
+import { AppState } from '../core/core.module';
 import { selectFotoURL1, selectFotoURL2 } from '../core/foto/foto.selectors';
 
 @Component({
@@ -40,18 +39,13 @@ export class AppComponent implements OnInit {
   language$: Observable<string> | undefined;
   theme$: Observable<string> | undefined;
 
-  constructor(
-    private store: Store<AppState>,
-    private storageService: LocalStorageService
-  ) {}
+  constructor(private store: Store<AppState>) {}
 
   private static isIEorEdgeOrSafari() {
     return ['ie', 'edge', 'safari'].includes(browser().name || '');
   }
 
   ngOnInit(): void {
-    this.storageService.testLocalStorage();
-
     this.fotoURL1$ = this.store.pipe(select(selectFotoURL1));
     this.fotoURL2$ = this.store.pipe(select(selectFotoURL2));
   }
