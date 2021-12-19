@@ -36,15 +36,9 @@ import {
   metaReducers,
   selectRouterState
 } from './core.state';
-import {
-  ROUTE_ANIMATIONS_ELEMENTS,
-  routeAnimations
-} from './animations/route.animations';
-import { AnimationsService } from './animations/animations.service';
 import { AppErrorHandler } from './error-handler/app-error-handler.service';
 import { CustomSerializer } from './router/custom-serializer';
 import { LocalStorageService } from './local-storage/local-storage.service';
-import { HttpErrorInterceptor } from './http-interceptors/http-error.interceptor';
 import { MatButtonModule } from '@angular/material/button';
 import {
   faCog,
@@ -63,14 +57,7 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 import { FotoEffects } from './foto/foto.effects';
 
-export {
-  routeAnimations,
-  AppState,
-  LocalStorageService,
-  ROUTE_ANIMATIONS_ELEMENTS,
-  AnimationsService,
-  selectRouterState
-};
+export { AppState, LocalStorageService, selectRouterState };
 
 export function httpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(
@@ -120,7 +107,6 @@ export function httpLoaderFactory(http: HttpClient) {
   ],
   declarations: [],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
     { provide: ErrorHandler, useClass: AppErrorHandler },
     { provide: RouterStateSerializer, useClass: CustomSerializer }
   ],

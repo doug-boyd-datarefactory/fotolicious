@@ -6,7 +6,7 @@ import {
   OnDestroy
 } from '@angular/core';
 
-import { ROUTE_ANIMATIONS_ELEMENTS } from '../../../core/core.module';
+// import { ROUTE_ANIMATIONS_ELEMENTS } from '../../../core/core.module';
 import { interval, Observable, Subscription } from 'rxjs';
 import { Store, select } from '@ngrx/store';
 
@@ -25,7 +25,7 @@ import { fotoGetURL1, fotoGetURL2 } from '../../../core/foto/foto.actions';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FotoliciousComponent implements OnInit, OnDestroy {
-  routeAnimationsElements = ROUTE_ANIMATIONS_ELEMENTS;
+  // routeAnimationsElements = ROUTE_ANIMATIONS_ELEMENTS;
   releaseButler = 'assets/release-butler.png';
   fotoPlaceHolder$: Observable<string> | undefined;
   fotoURL1$: Observable<string> | undefined;

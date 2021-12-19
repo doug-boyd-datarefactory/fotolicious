@@ -6,19 +6,14 @@ import { Observable } from 'rxjs';
 
 import { environment as env } from '../../environments/environment';
 
-import {
-  routeAnimations,
-  LocalStorageService,
-  AppState
-} from '../core/core.module';
+import { LocalStorageService, AppState } from '../core/core.module';
 // import { selectFotoState } from '../core/core.state';
 import { selectFotoURL1, selectFotoURL2 } from '../core/foto/foto.selectors';
 
 @Component({
   selector: 'anms-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
-  animations: [routeAnimations]
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
   isProd = env.production;
