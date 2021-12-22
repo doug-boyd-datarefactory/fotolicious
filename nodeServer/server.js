@@ -98,7 +98,7 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '../ui/build')));
 app.use(cors());
 
-app.post('/api/getPic', (req, res) => {
+app.post('/api/getFoto', (req, res) => {
   console.log('called the api here: ' + new Date());
   return res.json(fotoliciousPics.pics[randomInt(0, 19)]);
 });

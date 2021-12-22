@@ -3,6 +3,9 @@
   "compilerOptions": {
     "baseUrl": "./src",
     "outDir": "./dist/out-tsc",
+    "paths": {
+      "@fotolicious-lib": ["dist/fotolicious-lib"]
+    },
     "sourceMap": true,
     "declaration": false,
     "moduleResolution": "node",

@@ -15,6 +15,7 @@
     (slideChange)="onSlideChange()"
     style="border-style: solid ; background-color: black;"
     >
+
   <mdb-carousel-item>
     <div style="text-align: center;">
     <img
@@ -22,6 +23,7 @@
       class="d-block "
       style="height: 100vh"
       alt="foto1"
+      (click)="toggleFullScreen()"
     />
     </div>
   </mdb-carousel-item>
@@ -32,6 +34,7 @@
       class="d-block"
       style="height: 100vh"
       alt="foto2"
+      (click)="toggleFullScreen()"
     />
   </mdb-carousel-item>
 </mdb-carousel>

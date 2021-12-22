@@ -10,12 +10,15 @@ import { map, catchError } from 'rxjs/operators';
 })
 export class FotoService {
   private fotoURL = new Subject<string>();
-  // fotoServiceEndpoint = '/api/getPic';
-  // fotoServiceEndpoint = 'http://localhost:3080/api/getPic';
-  fotoServiceEndpoint = 'http://localhost:8080/api/getFoto';
-  // fotoServiceEndpoint =
-  // 'http://ec2-3-25-2-216.ap-southeast-2.compute.amazonaws.com:8080/api/getFoto';
-  // fotoServiceEndpoint = 'api/getPic';
+
+  // Dev Endpoint - springboot server
+  // fotoServiceEndpoint = 'http://localhost:8080/api/getFoto';
+
+  // Dev Endpoint - internal node server
+  fotoServiceEndpoint = 'http://localhost:3080/api/getFoto';
+
+  // Production service endpoint
+  // fotoServiceEndpoint ='http://ec2-3-25-2-216.ap-southeast-2.compute.amazonaws.com:8080/api/getFoto';
 
   constructor(private http: HttpClient) {
     console.log('in the construcyor');
