@@ -15,10 +15,11 @@ export class FotoService {
   // fotoServiceEndpoint = 'http://localhost:8080/api/getFoto';
 
   // Dev Endpoint - internal node server
-  fotoServiceEndpoint = 'http://localhost:3080/api/getFoto';
+  // fotoServiceEndpoint = 'http://localhost:3080/api/getFoto';
 
   // Production service endpoint
-  // fotoServiceEndpoint ='http://ec2-3-25-2-216.ap-southeast-2.compute.amazonaws.com:8080/api/getFoto';
+  fotoServiceEndpoint =
+    'http://ec2-3-25-2-216.ap-southeast-2.compute.amazonaws.com:8080/api/getFoto';
 
   constructor(private http: HttpClient) {
     console.log('in the construcyor');
@@ -48,40 +49,5 @@ export class FotoService {
         return of([]);
       })
     );
-  }
-
-  getPicxxx() {
-    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    const options = { headers };
-    console.log('x x x x x x x x x x');
-    console.log('x x x x x x x x x x');
-    console.log('x x x x x x x x x x');
-    console.log('x x x x x x x x x x');
-
-    this.http
-      .post<any>(this.fotoServiceEndpoint, {
-        title: 'Angular POST Request Example'
-      })
-      .subscribe((data) => {
-        console.log(data.url);
-        return data;
-      });
-
-    /*
-    return this.http.post(this.fotoServiceEndpoint, options).pipe(
-      // return this.http.post(this.fotoServiceEndpoint, options).pipe(
-      map((response: any) => {
-        console.log('x x x x x x x x x x');
-        console.log('In the foto.service.ts getPic');
-        console.log(response);
-        return response;
-      }),
-      catchError((err) => {
-        console.log('y y y y y y y y y y y y y y y y');
-        console.log(err);
-        return of([]);
-      })
-    );
-    */
   }
 }

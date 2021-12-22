@@ -21,6 +21,8 @@ To build the NG version of the app:
 
 ```
 npm run build:fotolicious
+```
+
 This will create a serious of assets in the dist/fotolicious directory. Send all of them up to the server, under the
 /usr/share/nginx/html directory
 
@@ -33,5 +35,7 @@ This will create a serious of assets in the dist/fotolicious directory. Send all
 - `npm run watch` - runs tests in watch mode
 - `npm run format:write` - runs prettier to format whole code base (`.ts` and `.scss`)
 - `npm run analyze` - runs full prod build and `webpack-bundle-analyzer` to visualize how much code is shipped (dependencies & application)
+
+```
 
 ```
